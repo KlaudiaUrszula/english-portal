@@ -127,7 +127,7 @@
 
         /* QUESTIONS STYLING */
         .question { 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             padding-bottom: 15px; 
             border-bottom: 3px dashed #bbf7d0; 
         }
@@ -146,6 +146,20 @@
             padding-left: 10px;
             font-weight: bold;
             font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        /* NEW: EXPLANATION BOX STYLING */
+        .explanation-box {
+            display: none; /* Hidden by default */
+            background-color: #fefce8;
+            border-left: 5px solid #f59e0b;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 0 10px 10px 0;
+            color: #78350f;
+            font-size: 1.05rem;
+            box-shadow: 2px 2px 0px rgba(245, 158, 11, 0.2);
         }
         
         /* BUTTONS - CUTE BUBBLY 3D */
@@ -179,6 +193,7 @@
             padding: 20px; 
             border-radius: 20px;
             font-family: 'Calibri Light', Calibri, sans-serif;
+            display: none; 
         }
         
         .error { color: #dc2626; text-align: center; margin-top: 15px; font-weight: bold; font-size: 1.1rem;}
@@ -213,77 +228,87 @@
         <p style="text-align: center; font-size: 1.1rem; font-weight: bold; color: #3f6212; margin-bottom: 30px;">Please answer all 10 questions. This will help determine your current English proficiency!</p>
         
         <form id="quiz-form">
-            <div class="question">
+            <div class="question" id="question-1">
                 <p>1. I ___ a student.</p>
                 <label><input type="radio" name="q1" value="a"> am</label>
                 <label><input type="radio" name="q1" value="b"> is</label>
                 <label><input type="radio" name="q1" value="c"> are</label>
+                <div class="explanation-box" id="exp-1"></div>
             </div>
             
-            <div class="question">
+            <div class="question" id="question-2">
                 <p>2. She ___ to the store yesterday.</p>
                 <label><input type="radio" name="q2" value="a"> go</label>
                 <label><input type="radio" name="q2" value="b"> goes</label>
                 <label><input type="radio" name="q2" value="c"> went</label>
+                <div class="explanation-box" id="exp-2"></div>
             </div>
             
-            <div class="question">
+            <div class="question" id="question-3">
                 <p>3. I don't have ___ money in my wallet right now.</p>
                 <label><input type="radio" name="q3" value="a"> some</label>
                 <label><input type="radio" name="q3" value="b"> any</label>
                 <label><input type="radio" name="q3" value="c"> no</label>
+                <div class="explanation-box" id="exp-3"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-4">
                 <p>4. If it rains tomorrow, we ___ at home.</p>
                 <label><input type="radio" name="q4" value="a"> stay</label>
                 <label><input type="radio" name="q4" value="b"> would stay</label>
                 <label><input type="radio" name="q4" value="c"> will stay</label>
+                <div class="explanation-box" id="exp-4"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-5">
                 <p>5. He ___ working at this company since 2020.</p>
                 <label><input type="radio" name="q5" value="a"> is</label>
                 <label><input type="radio" name="q5" value="b"> has been</label>
                 <label><input type="radio" name="q5" value="c"> was</label>
+                <div class="explanation-box" id="exp-5"></div>
             </div>
             
-            <div class="question">
+            <div class="question" id="question-6">
                 <p>6. The new software package ___ delivered tomorrow morning.</p>
                 <label><input type="radio" name="q6" value="a"> will</label>
                 <label><input type="radio" name="q6" value="b"> will be</label>
                 <label><input type="radio" name="q6" value="c"> is going</label>
+                <div class="explanation-box" id="exp-6"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-7">
                 <p>7. I wish I ___ more time to finish the assignment.</p>
                 <label><input type="radio" name="q7" value="a"> have</label>
                 <label><input type="radio" name="q7" value="b"> had</label>
                 <label><input type="radio" name="q7" value="c"> will have</label>
+                <div class="explanation-box" id="exp-7"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-8">
                 <p>8. By the time the movie started, we ___ our popcorn.</p>
                 <label><input type="radio" name="q8" value="a"> had already finished</label>
                 <label><input type="radio" name="q8" value="b"> have already finished</label>
                 <label><input type="radio" name="q8" value="c"> already finished</label>
+                <div class="explanation-box" id="exp-8"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-9">
                 <p>9. Not only ___ the piano, but she also sings beautifully.</p>
                 <label><input type="radio" name="q9" value="a"> she plays</label>
                 <label><input type="radio" name="q9" value="b"> does she play</label>
                 <label><input type="radio" name="q9" value="c"> plays she</label>
+                <div class="explanation-box" id="exp-9"></div>
             </div>
 
-            <div class="question">
+            <div class="question" id="question-10">
                 <p>10. I'd rather you ___ smoke inside the house.</p>
                 <label><input type="radio" name="q10" value="a"> don't</label>
                 <label><input type="radio" name="q10" value="b"> didn't</label>
                 <label><input type="radio" name="q10" value="c"> wouldn't</label>
+                <div class="explanation-box" id="exp-10"></div>
             </div>
 
-            <button type="button" onclick="calculateScore()">📝 Submit Test</button>
+            <button type="button" id="submit-btn" onclick="calculateScore()">📝 Submit Test</button>
             <div id="error-message" class="error"></div>
         </form>
         
@@ -297,19 +322,30 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
+        // The correct answers and explanations for each question!
+        const quizData = {
+            q1: { answer: 'a', explanation: "The pronoun 'I' always takes the 'am' form of the verb 'to be'." },
+            q2: { answer: 'c', explanation: "The word 'yesterday' means this happened in the past. The past tense of 'go' is 'went'." },
+            q3: { answer: 'b', explanation: "We use 'any' in negative sentences (sentences with 'don\\'t', 'isn\\'t', etc.) instead of 'some'." },
+            q4: { answer: 'c', explanation: "This is a First Conditional sentence for a real future possibility. We use 'will + verb' in the main clause." },
+            q5: { answer: 'b', explanation: "'Since 2020' shows an action started in the past and is still happening now, requiring Present Perfect Continuous ('has been')." },
+            q6: { answer: 'b', explanation: "This is the future passive voice. The package receives the action, so we use 'will be + past participle (delivered)'." },
+            q7: { answer: 'b', explanation: "After 'I wish' to express a present regret, we use the past simple tense ('had')." },
+            q8: { answer: 'a', explanation: "The Past Perfect ('had finished') is used to show that one action happened completely *before* another action in the past." },
+            q9: { answer: 'b', explanation: "When starting a sentence with a negative phrase like 'Not only', the subject and auxiliary verb must be inverted (does she play)." },
+            q10: { answer: 'b', explanation: "When 'would rather' is followed by a different subject ('you'), we use the past tense ('didn\\'t') to talk about present preferences." }
+        };
+
         function calculateScore() {
             let score = 0;
             const form = document.getElementById('quiz-form');
             const resultDiv = document.getElementById('test-result');
             const errorDiv = document.getElementById('error-message');
+            const submitBtn = document.getElementById('submit-btn');
             
-            // Clear previous results/errors
-            resultDiv.innerHTML = "";
-            resultDiv.style.backgroundColor = "transparent";
-            resultDiv.style.border = "none";
             errorDiv.innerHTML = "";
 
-            // Check if all questions are answered
+            // Check if all questions are answered first
             for (let i = 1; i <= 10; i++) {
                 if (!form['q' + i].value) {
                     errorDiv.innerHTML = "Please answer all 10 questions before submitting. 🌻";
@@ -317,17 +353,43 @@
                 }
             }
 
-            // Correct answers
-            if (form.q1.value === 'a') score++;
-            if (form.q2.value === 'c') score++;
-            if (form.q3.value === 'b') score++;
-            if (form.q4.value === 'c') score++;
-            if (form.q5.value === 'b') score++;
-            if (form.q6.value === 'b') score++;
-            if (form.q7.value === 'b') score++;
-            if (form.q8.value === 'a') score++;
-            if (form.q9.value === 'b') score++;
-            if (form.q10.value === 'b') score++;
+            // Loop through questions to check answers, provide feedback, and show explanations
+            for (let i = 1; i <= 10; i++) {
+                let questionDiv = document.getElementById('question-' + i);
+                let labels = questionDiv.querySelectorAll('label');
+                let expBox = document.getElementById('exp-' + i);
+                
+                let selectedAnswer = form['q' + i].value;
+                let correctAnswer = quizData['q' + i].answer;
+                let explanation = quizData['q' + i].explanation;
+
+                labels.forEach(label => {
+                    let input = label.querySelector('input');
+                    input.disabled = true; // Lock the answer
+
+                    if (input.value === correctAnswer) {
+                        label.style.color = "#16a34a"; // Green for the right answer
+                        if (selectedAnswer === correctAnswer) {
+                            label.innerHTML += " ✅ Correct!";
+                            score++; 
+                        } else {
+                            label.innerHTML += " ✔️ (This was the correct answer)";
+                        }
+                    } else if (input.checked && selectedAnswer !== correctAnswer) {
+                        label.style.color = "#dc2626"; // Red for the wrong choice
+                        label.innerHTML += " ❌ Incorrect";
+                    }
+                });
+
+                // Show the explanation box if they got it wrong
+                if (selectedAnswer !== correctAnswer) {
+                    expBox.innerHTML = `<strong>💡 Teacher's Note:</strong> ${explanation}`;
+                    expBox.style.display = "block";
+                }
+            }
+
+            // Hide the submit button
+            submitBtn.style.display = 'none';
 
             // Determine Level
             let level = "";
@@ -343,13 +405,14 @@
                 level = "Advanced (C1 - C2)";
             }
 
-            // Display Result with Bubbly Theme Styling
+            // Display Result
+            resultDiv.style.display = "block";
             resultDiv.style.backgroundColor = "#f0fdf4"; 
             resultDiv.style.border = "3px dashed #4ade80"; 
             resultDiv.style.color = "#16a34a"; 
-            resultDiv.innerHTML = `Great job! 🎉<br><br>You scored ${score} out of 10.<br>Your estimated level is:<br><strong style="color: #3f6212; font-size: 1.8rem; font-family: 'Righteous', cursive; letter-spacing: 1px;">${level}</strong>`;
+            resultDiv.innerHTML = `Great job! 🎉<br><br>You scored ${score} out of 10.<br>Your estimated level is:<br><strong style="color: #3f6212; font-size: 1.8rem; font-family: 'Righteous', cursive; letter-spacing: 1px;">${level}</strong><br><br><span style="font-size:1rem; color:#475569;">Scroll up to review your answers!</span>`;
             
-            // Trigger the confetti celebration!
+            // Trigger the confetti
             confetti({
                 particleCount: 200,
                 spread: 100,
