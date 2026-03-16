@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Level Test</title>
+    <style>
+        /* Import Retro Font for the Header & Headings */
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+        /* PLANT-THEMED COLOR PALETTE */
+        :root {
+            --primary-color: #4ade80; 
+            --primary-dark: #16a34a;  
+            --secondary-color: #fefce8; 
+            --accent-color: #fcd34d;  
+            --text-color: #3f6212;    
+            --box-bg: #ffffff;        
+        }
+        
+        body {
+            font-family: 'Calibri Light', Calibri, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
+            background-size: 20px 20px; 
+        }
+
+        /* UPGRADED HEADER: Centered, Yellow, and Retro */
+        header {
+            background-color: #fcd34d; 
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.3) 0px, rgba(255,255,255,0.3) 10px, transparent 10px, transparent 20px); 
+            padding: 1.5rem 0; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 0px #d97706; 
+            border-bottom: 4px solid #78350f; 
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 40px; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        /* Retro Navigation Buttons */
+        nav a { 
+            font-family: 'Righteous', 'Impact', cursive; 
+            font-size: 1.3rem;
+            color: #78350f; 
+            text-decoration: none; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            background-color: white;
+            border: 3px solid #78350f;
+            box-shadow: 3px 3px 0px #78350f; 
+            transition: all 0.2s ease;
+        }
+        
+        nav a:hover { 
+            background-color: #ff914d; 
+            color: white;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #78350f; 
+        }
+
+        nav a:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #78350f; 
+        }
+        
+        section { 
+            max-width: 800px; 
+            margin: 60px auto 40px auto; 
+            padding: 30px; 
+            background: var(--box-bg); 
+            border-radius: 20px; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05); 
+            border: 2px solid var(--primary-color);
+        }
+        
+        h1 { 
+            font-family: 'Righteous', 'Impact', cursive; /* Matching Retro Font */
+            letter-spacing: 1px;
+            color: var(--primary-dark); 
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        h1::after {
+            content: ' 🌿'; 
+        }
+        
+        .question { 
+            margin-bottom: 20px; 
+            padding-bottom: 15px; 
+            border-bottom: 2px dashed #bbf7d0; 
+        }
+        .question p { font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; color: var(--primary-dark); }
+        label { display: block; margin-bottom: 8px; cursor: pointer; padding-left: 10px;}
+        
+        button { 
+            background-color: var(--accent-color); 
+            color: #78350f; 
+            border: none; 
+            padding: 15px 24px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 1.2rem; 
+            font-weight: bold;
+            box-shadow: 0 4px 0px #d97706; 
+            transition: transform 0.1s, box-shadow 0.1s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover { 
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #d97706;
+        }
+        
+        #test-result { 
+            margin-top: 25px; 
+            font-weight: bold; 
+            font-size: 1.3rem; 
+            text-align: center; 
+            padding: 20px; 
+            border-radius: 15px;
+        }
+        .error { color: #dc2626; text-align: center; margin-top: 15px; font-weight: bold;}
+        
+        footer { 
+            text-align: center; 
+            padding: 20px; 
+            background-color: var(--primary-dark); 
+            color: white; 
+            margin-top: 40px; 
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="engpage.html">Home</a></li>
+                <li><a href="lvltest.html">Level Test</a></li>
+                <li><a href="engpage.html#homework">Homework</a></li>
+                <li><a href="engpage.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="level-test">
+        <h1>COMPREHENSIVE ENGLISH PLACEMENT TEST</h1>
+        <p style="text-align: center; font-size: 1.1rem;">Please answer all 10 questions to the best of your ability. This will help determine your current grammar and vocabulary proficiency.</p>
+        
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. I ___ a student.</p>
+                <label><input type="radio" name="q1" value="a"> am</label>
+                <label><input type="radio" name="q1" value="b"> is</label>
+                <label><input type="radio" name="q1" value="c"> are</label>
+            </div>
+            
+            <div class="question">
+                <p>2. She ___ to the store yesterday.</p>
+                <label><input type="radio" name="q2" value="a"> go</label>
+                <label><input type="radio" name="q2" value="b"> goes</label>
+                <label><input type="radio" name="q2" value="c"> went</label>
+            </div>
+            
+            <div class="question">
+                <p>3. I don't have ___ money in my wallet right now.</p>
+                <label><input type="radio" name="q3" value="a"> some</label>
+                <label><input type="radio" name="q3" value="b"> any</label>
+                <label><input type="radio" name="q3" value="c"> no</label>
+            </div>
+
+            <div class="question">
+                <p>4. If it rains tomorrow, we ___ at home.</p>
+                <label><input type="radio" name="q4" value="a"> stay</label>
+                <label><input type="radio" name="q4" value="b"> would stay</label>
+                <label><input type="radio" name="q4" value="c"> will stay</label>
+            </div>
+
+            <div class="question">
+                <p>5. He ___ working at this company since 2020.</p>
+                <label><input type="radio" name="q5" value="a"> is</label>
+                <label><input type="radio" name="q5" value="b"> has been</label>
+                <label><input type="radio" name="q5" value="c"> was</label>
+            </div>
+            
+            <div class="question">
+                <p>6. The new software package ___ delivered tomorrow morning.</p>
+                <label><input type="radio" name="q6" value="a"> will</label>
+                <label><input type="radio" name="q6" value="b"> will be</label>
+                <label><input type="radio" name="q6" value="c"> is going</label>
+            </div>
+
+            <div class="question">
+                <p>7. I wish I ___ more time to finish the assignment.</p>
+                <label><input type="radio" name="q7" value="a"> have</label>
+                <label><input type="radio" name="q7" value="b"> had</label>
+                <label><input type="radio" name="q7" value="c"> will have</label>
+            </div>
+
+            <div class="question">
+                <p>8. By the time the movie started, we ___ our popcorn.</p>
+                <label><input type="radio" name="q8" value="a"> had already finished</label>
+                <label><input type="radio" name="q8" value="b"> have already finished</label>
+                <label><input type="radio" name="q8" value="c"> already finished</label>
+            </div>
+
+            <div class="question">
+                <p>9. Not only ___ the piano, but she also sings beautifully.</p>
+                <label><input type="radio" name="q9" value="a"> she plays</label>
+                <label><input type="radio" name="q9" value="b"> does she play</label>
+                <label><input type="radio" name="q9" value="c"> plays she</label>
+            </div>
+
+            <div class="question">
+                <p>10. I'd rather you ___ smoke inside the house.</p>
+                <label><input type="radio" name="q10" value="a"> don't</label>
+                <label><input type="radio" name="q10" value="b"> didn't</label>
+                <label><input type="radio" name="q10" value="c"> wouldn't</label>
+            </div>
+
+            <button type="button" onclick="calculateScore()">📝 Submit Test</button>
+            <div id="error-message" class="error"></div>
+        </form>
+        
+        <div id="test-result"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 English Tutoring. Keep growing! 🌱</p>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+            const resultDiv = document.getElementById('test-result');
+            const errorDiv = document.getElementById('error-message');
+            
+            // Clear previous results/errors
+            resultDiv.innerHTML = "";
+            resultDiv.style.backgroundColor = "transparent";
+            resultDiv.style.border = "none";
+            errorDiv.innerHTML = "";
+
+            // Check if all questions are answered
+            for (let i = 1; i <= 10; i++) {
+                if (!form['q' + i].value) {
+                    errorDiv.innerHTML = "Please answer all 10 questions before submitting. 🌻";
+                    return; 
+                }
+            }
+
+            // Correct answers
+            if (form.q1.value === 'a') score++;
+            if (form.q2.value === 'c') score++;
+            if (form.q3.value === 'b') score++;
+            if (form.q4.value === 'c') score++;
+            if (form.q5.value === 'b') score++;
+            if (form.q6.value === 'b') score++;
+            if (form.q7.value === 'b') score++;
+            if (form.q8.value === 'a') score++;
+            if (form.q9.value === 'b') score++;
+            if (form.q10.value === 'b') score++;
+
+            // Determine Level
+            let level = "";
+            if (score <= 2) {
+                level = "Absolute Beginner (A0 - A1)";
+            } else if (score <= 4) {
+                level = "Elementary (A2)";
+            } else if (score <= 6) {
+                level = "Intermediate (B1)";
+            } else if (score <= 8) {
+                level = "Upper Intermediate (B2)";
+            } else {
+                level = "Advanced (C1 - C2)";
+            }
+
+            // Display Result with Plant Theme Styling
+            resultDiv.style.backgroundColor = "#f0fdf4"; // Light mint
+            resultDiv.style.border = "2px dashed #4ade80"; // Green border
+            resultDiv.style.color = "#16a34a"; // Dark green text
+            resultDiv.innerHTML = `Great job! 🎉<br>You scored ${score} out of 10.<br>Your estimated level is: <strong style="color: #3f6212;">${level}</strong>`;
+        }
+    </script>
+</body>
+</html>

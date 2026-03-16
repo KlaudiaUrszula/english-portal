@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Tutoring Portal</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+        /* FUN BUBBLY 3D COLOR PALETTE */
+        :root {
+            --primary-color: #4ade80; 
+            --primary-dark: #16a34a;  
+            --secondary-color: #fefce8; 
+            --accent-color: #fcd34d;  
+            --text-color: #3f6212;    
+            --box-bg: #ffffff;        
+            --cute-blue: #bae6fd;
+            --cute-blue-dark: #0284c7;
+        }
+        
+        /* Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Calibri Light', Calibri, sans-serif; 
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
+            background-size: 20px 20px; 
+        }
+
+        /* HEADER */
+        header {
+            background-color: #fcd34d; 
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.4) 0px, rgba(255,255,255,0.4) 10px, transparent 10px, transparent 20px); 
+            padding: 1.5rem 0; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #78350f; 
+            box-shadow: 0 6px 0px rgba(120, 53, 15, 0.15); 
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 25px; 
+            padding: 0; 
+            margin: 0;
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+
+        nav a { 
+            display: inline-block; 
+            font-family: 'Righteous', 'Impact', cursive; 
+            font-size: 1.2rem;
+            color: #78350f; 
+            text-decoration: none; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 25px;
+            background-color: white;
+            border: 3px solid #78350f;
+            border-radius: 30px; 
+            box-shadow: 3px 3px 0px #78350f; 
+            transition: all 0.2s ease;
+        }
+        
+        nav a:hover { 
+            background-color: #ff914d; 
+            color: white;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #78350f; 
+        }
+
+        nav a:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #78350f; 
+        }
+
+        /* HERO SECTION */
+        #home {
+            max-width: 750px; 
+            margin: 40px auto; 
+            padding: 40px 20px; 
+            background: var(--box-bg);
+            border-radius: 30px;
+            text-align: center;
+            border: 3px solid var(--primary-dark);
+            box-shadow: 6px 6px 0px var(--primary-color);
+            position: relative;
+        }
+
+        #home h1 {
+            font-family: 'Righteous', cursive; 
+            font-size: 2.5rem; 
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        #home p {
+            font-size: 1.2rem; 
+            max-width: 600px;
+            margin: 0 auto 15px auto;
+            font-weight: bold;
+            color: #3f6212;
+        }
+
+        /* DASHBOARD GRID */
+        .interactive-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .interactive-box {
+            background: var(--box-bg); 
+            border-radius: 20px; 
+            border: 3px solid var(--primary-dark);
+            box-shadow: 6px 6px 0px var(--primary-color); 
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        @media (max-width: 800px) {
+            .interactive-container { grid-template-columns: 1fr; }
+        }
+
+        /* WORD BOARD - WHITE WITH YELLOW BORDER */
+        .word-board { 
+            background-color: white; 
+            border-color: #f59e0b;
+            box-shadow: 6px 6px 0px #fcd34d;
+        }
+        
+        .the-word { 
+            font-family: 'Righteous', cursive; 
+            font-size: 2.8rem; 
+            color: #ea580c; 
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+
+        .word-board p { color: #78350f; font-size: 1.1rem; }
+        .word-example {
+            font-size: 1rem; 
+            font-style: italic; 
+            color: #3f6212; 
+            background-color: var(--secondary-color);
+            padding: 12px; 
+            border-radius: 15px;
+            border: 2px dashed #f59e0b;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* WORD SCRAMBLE GAME STYLES */
+        .scramble-word {
+            font-family: 'Righteous', cursive;
+            font-size: 2.2rem;
+            color: var(--cute-blue-dark);
+            letter-spacing: 5px;
+            margin: 15px 0;
+            background: var(--cute-blue);
+            padding: 10px;
+            border-radius: 15px;
+            border: 3px dashed var(--cute-blue-dark);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .scramble-hint { font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; color: var(--primary-dark); }
+
+        .scramble-input {
+            display: block; 
+            width: 80%;
+            padding: 12px;
+            font-size: 1.2rem;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 15px;
+            border: 3px solid var(--primary-color);
+            margin: 0 auto 15px auto; 
+            font-family: 'Righteous', cursive;
+        }
+
+        .scramble-buttons { display: flex; justify-content: center; gap: 15px; width: 100%; }
+
+        /* BUTTONS */
+        button, .cta-button, .done-btn { 
+            background-color: var(--accent-color); 
+            color: #78350f; 
+            border: 3px solid #78350f; 
+            padding: 10px 20px; 
+            border-radius: 25px;
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            font-family: 'Righteous', cursive;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px #78350f; 
+            transition: 0.1s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:active, .done-btn:active, .cta-button:active { 
+            transform: translateY(2px); 
+            box-shadow: 0px 0px 0px #78350f; 
+        }
+        
+        .done-btn { background-color: var(--primary-color); margin-top: 15px; }
+
+        /* RESOURCE LIBRARY BUTTONS */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .resource-card {
+            background-color: var(--cute-blue);
+            padding: 15px 10px; 
+            border-radius: 15px;
+            border: 3px solid var(--cute-blue-dark);
+            box-shadow: 4px 4px 0px var(--cute-blue-dark);
+            text-decoration: none;
+            color: var(--cute-blue-dark);
+            font-family: 'Righteous', cursive;
+            text-transform: uppercase; 
+            transition: 0.1s;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem; 
+            text-align: center;
+        }
+        
+        .resource-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0px var(--cute-blue-dark); background-color: #ff914d; color: white; border-color: #c2410c;}
+        .resource-card:active { transform: translateY(2px); box-shadow: 2px 2px 0px var(--cute-blue-dark); }
+        
+        .resource-icon { font-size: 2rem; display: block; margin-bottom: 8px; } 
+
+        /* STANDARD SECTIONS */
+        .standard-section { 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 40px; 
+            background: var(--box-bg); 
+            border-radius: 30px;
+            border: 3px solid var(--primary-dark); 
+            box-shadow: 6px 6px 0px var(--primary-color);
+        }
+
+        h2 { font-family: 'Righteous', cursive; color: var(--primary-dark); text-align: center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;}
+
+        /* HOMEWORK */
+        .homework-item { 
+            border: 3px dashed var(--primary-color); 
+            border-radius: 20px; 
+            padding: 20px; 
+            margin-bottom: 25px; 
+            background-color: #f0fdf4; 
+        }
+        
+        .homework-item h3 { margin-top: 0; color: var(--primary-dark); font-size: 1.5rem; font-family: 'Righteous', cursive;}
+
+        /* FORMS */
+        input, textarea, select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 5px;
+            margin-bottom: 20px; 
+            border: 3px solid #bbf7d0; 
+            border-radius: 15px;
+            box-sizing: border-box; 
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        input:focus, textarea:focus, select:focus { outline: none; background-color: var(--secondary-color); border-color: var(--primary-color); }
+        
+        footer { text-align: center; padding: 30px; background-color: var(--primary-dark); color: white; margin-top: 60px; font-family: 'Righteous', cursive; letter-spacing: 1px;}
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="lvltest.html">Level Test</a></li>
+                <li><a href="#homework">Homework</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div style="font-size: 3.5rem; margin-bottom: 15px;">📚 🪴 ✏️</div>
+        <h1>Welcome to Your English Portal</h1>
+        <p>Hello! I am your English tutor. Check your current level, play games, and watch your language skills level up!</p>
+        <a href="lvltest.html" class="cta-button" style="background-color: var(--primary-color); color: white; border-color: var(--primary-dark); box-shadow: 3px 3px 0px var(--primary-dark); margin-top: 15px;">▶ Take Level Test</a>
+    </section>
+
+    <div class="interactive-container">
+        
+        <div id="word-of-the-week" class="interactive-box word-board">
+            <h2 style="color: #ea580c; font-size: 1.5rem; margin-bottom: 5px;">★ Word of the Week ★</h2>
+            <div class="the-word">BAMBOOZLE</div>
+            <p style="font-weight: bold;">To trick or confuse someone.</p>
+            <div class="word-example">"The clever monkey tried to bamboozle the zookeeper by hiding the bananas!" 🐒🍌</div>
+            <button onclick="speakWord()" style="background-color: #ff914d; color: white; border-color: #c2410c; box-shadow: 3px 3px 0px #c2410c; margin-top: 20px;">🔊 Hear it out loud!</button>
+        </div>
+
+        <div id="fun-zone" class="interactive-box">
+            <h2 style="font-size: 1.5rem; margin-bottom: 5px;">🧩 Word Scramble</h2>
+            <p style="font-weight: bold; margin-bottom: 5px; color: var(--text-color);">Unscramble the letters to make a word!</p>
+            
+            <div id="scramble-word" class="scramble-word">LOADING...</div>
+            <div id="scramble-hint" class="scramble-hint">Hint: ...</div>
+            
+            <input type="text" id="scramble-input" class="scramble-input" placeholder="TYPE GUESS" autocomplete="off">
+            
+            <div class="scramble-buttons">
+                <button onclick="checkScramble()" style="background-color: var(--primary-color); color: white; border-color: var(--primary-dark); box-shadow: 3px 3px 0px var(--primary-dark);">✔️ Check</button>
+                <button onclick="initScrambleGame()" style="background-color: #e2e8f0; border-color: #94a3b8; box-shadow: 3px 3px 0px #94a3b8;">⏭️ Skip</button>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="homework" class="standard-section">
+        <h2>Weekly Assignments</h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: bold;">Select your English level below to see your specific tasks.</p>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <select id="level-filter" onchange="filterHomework()" style="width: auto; padding: 10px 20px; cursor: pointer;">
+                <option value="all">★ Show All Homework</option>
+                <option value="beginner">🌱 Beginner (A1-A2)</option>
+                <option value="intermediate">🌿 Intermediate (B1-B2)</option>
+                <option value="advanced">🌳 Advanced (C1-C2)</option>
+            </select>
+        </div>
+
+        <div class="homework-item" data-level="intermediate">
+            <h3>First & Second Conditionals</h3>
+            <span style="font-size: 0.9rem; font-weight: bold; color: var(--primary-dark);">POSTED: MARCH 16, 2026</span>
+            <p><strong>Task 1:</strong> Complete the grammar worksheet matching the "if" clauses to the results.<br>
+               <strong>Task 2:</strong> Record a 1-minute audio message on WhatsApp answering this question: <em>"If you won the lottery tomorrow, what is the first thing you would buy?"</em></p>
+            <a href="intermediate-conditionals.pdf" download style="color: var(--primary-dark); font-weight: bold; text-decoration: underline;">📥 Download Worksheet (PDF)</a><br>
+            <button class="done-btn" onclick="celebrate()" style="color: white; border-color: var(--primary-dark); box-shadow: 3px 3px 0px var(--primary-dark);">★ I finished!</button>
+        </div>
+
+        <div class="homework-item" data-level="advanced">
+            <h3>Advanced Phrasal Verbs</h3>
+            <span style="font-size: 0.9rem; font-weight: bold; color: var(--primary-dark);">POSTED: MARCH 16, 2026</span>
+            <p><strong>Task 1:</strong> Read the provided article about corporate restructuring.<br>
+               <strong>Task 2:</strong> Highlight all the phrasal verbs you find. Then, write a 200-word summary of the article using at least 5 of those phrasal verbs correctly.</p>
+            <a href="https://www.bbc.com/news/business" target="_blank" style="color: var(--primary-dark); font-weight: bold; text-decoration: underline;">📖 Read BBC Business Article</a><br>
+            <button class="done-btn" onclick="celebrate()" style="color: white; border-color: var(--primary-dark); box-shadow: 3px 3px 0px var(--primary-dark);">★ I finished!</button>
+        </div>
+
+        <div class="homework-item" data-level="beginner">
+            <h3>Daily Routine & Time</h3>
+            <span style="font-size: 0.9rem; font-weight: bold; color: var(--primary-dark);">POSTED: MARCH 16, 2026</span>
+            <p><strong>Task 1:</strong> Read the short story about Maria's morning routine. <br>
+               <strong>Task 2:</strong> Write 5 sentences about your own morning using words like <em>always, usually,</em> and <em>sometimes</em>.</p>
+            <a href="beginner-routine.pdf" download style="color: var(--primary-dark); font-weight: bold; text-decoration: underline;">📥 Download Reading Passage (PDF)</a><br>
+            <button class="done-btn" onclick="celebrate()" style="color: white; border-color: var(--primary-dark); box-shadow: 3px 3px 0px var(--primary-dark);">★ I finished!</button>
+        </div>
+    </section>
+
+    <section id="resources" class="standard-section" style="background-color: white; border-color: var(--cute-blue-dark); box-shadow: 6px 6px 0px #7dd3fc; padding-top: 25px; padding-bottom: 25px;">
+        <h2 style="color: var(--cute-blue-dark);">🚀 Cool Links</h2>
+        <p style="text-align: center; font-size: 1.1rem; color: #0f172a; font-weight: bold;">Safe and fun places to practice your English!</p>
+        
+        <div class="resource-grid">
+            <a href="https://www.youtube.com/c/inanutshell" target="_blank" class="resource-card">
+                <span class="resource-icon">🦆</span>
+                Kurzgesagt
+            </a>
+            <a href="https://dictionary.cambridge.org/dictionary/learner-english/" target="_blank" class="resource-card">
+                <span class="resource-icon">📖</span>
+                Dictionary
+            </a>
+            <a href="https://engoo.com/app/daily-news" target="_blank" class="resource-card">
+                <span class="resource-icon">📰</span>
+                News Articles
+            </a>
+            <a href="https://www.gamestolearnenglish.com/" target="_blank" class="resource-card">
+                <span class="resource-icon">🕹️</span>
+                ESL Games
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="standard-section">
+        <h2>Contact Me</h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: bold;">Do you have any questions or need to reschedule a lesson? Send me a message!</p>
+        
+        <form action="https://formspree.io/f/mqeyyddz" method="POST">
+            <label for="name" style="font-weight: bold;">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="E.g. Player One" required>
+
+            <label for="email" style="font-weight: bold;">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="player@example.com" required>
+
+            <label for="message" style="font-weight: bold;">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <div style="text-align: center;">
+                <button type="submit" style="font-size: 1.3rem; padding: 12px 35px; color: white; background-color: var(--cute-blue-dark); border-color: #0369a1; box-shadow: 3px 3px 0px #0369a1;">✉️ Send Message</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>COPYRIGHT &copy; 2026 ENGLISH TUTORING. PRESS START TO GROW! 🌱</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        function celebrate() {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+
+        function filterHomework() {
+            const selectedLevel = document.getElementById('level-filter').value;
+            const items = document.querySelectorAll('.homework-item');
+
+            items.forEach(item => {
+                const itemLevel = item.getAttribute('data-level');
+                if (selectedLevel === 'all' || itemLevel === selectedLevel) {
+                    item.style.display = 'block'; 
+                } else {
+                    item.style.display = 'none';  
+                }
+            });
+        }
+
+        function speakWord() {
+            if ('speechSynthesis' in window) {
+                const textToSpeak = "Bamboozle. To trick or confuse someone.";
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.rate = 0.85; 
+                utterance.pitch = 1.1; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Oops! Your browser doesn't support the talking feature. 😢");
+            }
+        }
+
+        const words = [
+            { word: "APPLE", hint: "A red or green fruit." },
+            { word: "GUITAR", hint: "A musical instrument with strings." },
+            { word: "SUMMER", hint: "The hottest season of the year." },
+            { word: "PENCIL", hint: "You use this to write or draw." },
+            { word: "BUTTERFLY", hint: "A colorful insect with big wings." },
+            { word: "FRIEND", hint: "Someone you like to play and talk with." },
+            { word: "ORANGE", hint: "A fruit that is the same name as its color." },
+            { word: "BICYCLE", hint: "It has two wheels and you pedal it." }
+        ];
+
+        let currentWord = "";
+
+        function shuffleWord(word) {
+            let shuffled = word.split('');
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled.join('');
+        }
+
+        function initScrambleGame() {
+            let randomIndex = Math.floor(Math.random() * words.length);
+            currentWord = words[randomIndex].word;
+            document.getElementById('scramble-word').innerText = shuffleWord(currentWord);
+            document.getElementById('scramble-hint').innerText = "Hint: " + words[randomIndex].hint;
+            document.getElementById('scramble-input').value = "";
+        }
+
+        function checkScramble() {
+            let guess = document.getElementById('scramble-input').value.toUpperCase().trim();
+            if (guess === currentWord) {
+                celebrate();
+                setTimeout(initScrambleGame, 1500); 
+            } else {
+                alert("Not quite right! Try again! 👾");
+                document.getElementById('scramble-input').value = "";
+            }
+        }
+
+        document.getElementById('scramble-input').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkScramble();
+            }
+        });
+
+        initScrambleGame();
+    </script>
+</body>
+</html>
