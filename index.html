@@ -148,8 +148,25 @@
             align-items: center; 
         }
 
+        /* TABLET VIEW RE-SIZING */
         @media (max-width: 800px) {
             .interactive-container { grid-template-columns: 1fr; }
+        }
+
+        /* MOBILE VIEW FIX FOR HEADER & HERO */
+        @media (max-width: 600px) {
+            header { padding: 0.8rem 0; }
+            nav ul { gap: 10px; }
+            nav a { 
+                font-size: 0.9rem; /* Smaller text */
+                padding: 6px 12px; /* Smaller buttons */
+                border-width: 2px; 
+                box-shadow: 2px 2px 0px #78350f; /* Smaller shadow */
+                letter-spacing: 1px;
+            }
+            #home { margin: 20px 15px; padding: 25px 15px; }
+            #home h1 { font-size: 1.8rem; }
+            #home p { font-size: 1rem; }
         }
 
         /* WORD BOARD - WHITE WITH YELLOW BORDER */
@@ -172,7 +189,7 @@
             font-size: 1rem; 
             font-style: italic; 
             color: #3f6212; 
-            background-color: var(--secondary-color);
+            background-color: var(--secondary-color); 
             padding: 12px; 
             border-radius: 15px;
             border: 2px dashed #f59e0b;
