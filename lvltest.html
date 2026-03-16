@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Level Test</title>
+    
     <style>
-        /* Import Retro Font for the Header & Headings */
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-        /* PLANT-THEMED COLOR PALETTE */
+        /* FUN BUBBLY 3D COLOR PALETTE */
         :root {
             --primary-color: #4ade80; 
             --primary-dark: #16a34a;  
@@ -16,10 +16,14 @@
             --accent-color: #fcd34d;  
             --text-color: #3f6212;    
             --box-bg: #ffffff;        
+            --cute-blue: #bae6fd;
+            --cute-blue-dark: #0284c7;
         }
         
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Calibri Light', Calibri, sans-serif;
+            font-family: 'Calibri Light', Calibri, sans-serif; 
             margin: 0;
             padding: 0;
             color: var(--text-color);
@@ -29,16 +33,16 @@
             background-size: 20px 20px; 
         }
 
-        /* UPGRADED HEADER: Centered, Yellow, and Retro */
+        /* HEADER */
         header {
             background-color: #fcd34d; 
-            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.3) 0px, rgba(255,255,255,0.3) 10px, transparent 10px, transparent 20px); 
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.4) 0px, rgba(255,255,255,0.4) 10px, transparent 10px, transparent 20px); 
             padding: 1.5rem 0; 
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 6px 0px #d97706; 
-            border-bottom: 4px solid #78350f; 
+            border-bottom: 3px solid #78350f; 
+            box-shadow: 0 6px 0px rgba(120, 53, 15, 0.15); 
         }
 
         nav {
@@ -53,23 +57,25 @@
         nav ul { 
             list-style: none; 
             display: flex; 
-            gap: 40px; 
+            gap: 25px; 
             padding: 0; 
             margin: 0;
+            flex-wrap: wrap; 
+            justify-content: center;
         }
 
-        /* Retro Navigation Buttons */
         nav a { 
+            display: inline-block; 
             font-family: 'Righteous', 'Impact', cursive; 
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #78350f; 
             text-decoration: none; 
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 10px 25px;
-            border-radius: 30px;
             background-color: white;
             border: 3px solid #78350f;
+            border-radius: 30px; 
             box-shadow: 3px 3px 0px #78350f; 
             transition: all 0.2s ease;
         }
@@ -85,74 +91,106 @@
             transform: translate(2px, 2px);
             box-shadow: 0px 0px 0px #78350f; 
         }
-        
-        section { 
+
+        /* MOBILE VIEW FIX FOR HEADER */
+        @media (max-width: 600px) {
+            header { padding: 0.8rem 0; }
+            nav ul { gap: 10px; }
+            nav a { 
+                font-size: 0.9rem; 
+                padding: 6px 12px; 
+                border-width: 2px; 
+                box-shadow: 2px 2px 0px #78350f; 
+                letter-spacing: 1px;
+            }
+        }
+
+        /* STANDARD SECTION (TEST CONTAINER) */
+        .standard-section { 
             max-width: 800px; 
-            margin: 60px auto 40px auto; 
-            padding: 30px; 
+            margin: 50px auto; 
+            padding: 40px; 
             background: var(--box-bg); 
-            border-radius: 20px; 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05); 
-            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            border: 3px solid var(--primary-dark); 
+            box-shadow: 6px 6px 0px var(--primary-color);
         }
-        
+
         h1 { 
-            font-family: 'Righteous', 'Impact', cursive; /* Matching Retro Font */
-            letter-spacing: 1px;
+            font-family: 'Righteous', cursive; 
             color: var(--primary-dark); 
-            text-align: center;
-            margin-top: 0;
+            text-align: center; 
+            font-size: 2.2rem; 
+            margin-top: 0; 
+            text-transform: uppercase;
         }
-        
-        h1::after {
-            content: ' 🌿'; 
-        }
-        
+
+        /* QUESTIONS STYLING */
         .question { 
             margin-bottom: 20px; 
             padding-bottom: 15px; 
-            border-bottom: 2px dashed #bbf7d0; 
+            border-bottom: 3px dashed #bbf7d0; 
         }
-        .question p { font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; color: var(--primary-dark); }
-        label { display: block; margin-bottom: 8px; cursor: pointer; padding-left: 10px;}
         
+        .question p { 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            font-size: 1.1rem; 
+            color: var(--primary-dark); 
+        }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            cursor: pointer; 
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* BUTTONS - CUTE BUBBLY 3D */
         button { 
             background-color: var(--accent-color); 
             color: #78350f; 
-            border: none; 
+            border: 3px solid #78350f; 
             padding: 15px 24px; 
-            border-radius: 25px; 
+            border-radius: 25px;
             cursor: pointer; 
             font-size: 1.2rem; 
-            font-weight: bold;
-            box-shadow: 0 4px 0px #d97706; 
-            transition: transform 0.1s, box-shadow 0.1s;
+            font-family: 'Righteous', cursive;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px #78350f; 
+            transition: 0.1s;
             width: 100%;
             margin-top: 20px;
         }
-        button:hover { 
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px #d97706;
+
+        button:active { 
+            transform: translateY(2px); 
+            box-shadow: 0px 0px 0px #78350f; 
         }
         
+        /* TEST RESULT BOX */
         #test-result { 
             margin-top: 25px; 
             font-weight: bold; 
             font-size: 1.3rem; 
             text-align: center; 
             padding: 20px; 
-            border-radius: 15px;
+            border-radius: 20px;
+            font-family: 'Calibri Light', Calibri, sans-serif;
         }
-        .error { color: #dc2626; text-align: center; margin-top: 15px; font-weight: bold;}
+        
+        .error { color: #dc2626; text-align: center; margin-top: 15px; font-weight: bold; font-size: 1.1rem;}
         
         footer { 
             text-align: center; 
-            padding: 20px; 
+            padding: 30px; 
             background-color: var(--primary-dark); 
             color: white; 
-            margin-top: 40px; 
-            font-weight: bold;
-            font-size: 1.1rem;
+            margin-top: 60px; 
+            font-family: 'Righteous', cursive; 
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -161,17 +199,18 @@
     <header>
         <nav>
             <ul>
-                <li><a href="engpage.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="lvltest.html">Level Test</a></li>
-                <li><a href="engpage.html#homework">Homework</a></li>
-                <li><a href="engpage.html#contact">Contact</a></li>
+                <li><a href="index.html#homework">Homework</a></li>
+                <li><a href="index.html#resources">Resources</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="level-test">
-        <h1>COMPREHENSIVE ENGLISH PLACEMENT TEST</h1>
-        <p style="text-align: center; font-size: 1.1rem;">Please answer all 10 questions to the best of your ability. This will help determine your current grammar and vocabulary proficiency.</p>
+    <section id="level-test" class="standard-section">
+        <h1>Level Placement Test</h1>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: bold; color: #3f6212; margin-bottom: 30px;">Please answer all 10 questions. This will help determine your current English proficiency!</p>
         
         <form id="quiz-form">
             <div class="question">
@@ -252,8 +291,10 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 English Tutoring. Keep growing! 🌱</p>
+        <p>COPYRIGHT &copy; 2026 ENGLISH TUTORING. PRESS START TO GROW! 🌱</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
         function calculateScore() {
@@ -302,11 +343,18 @@
                 level = "Advanced (C1 - C2)";
             }
 
-            // Display Result with Plant Theme Styling
+            // Display Result with Bubbly Theme Styling
             resultDiv.style.backgroundColor = "#f0fdf4"; // Light mint
-            resultDiv.style.border = "2px dashed #4ade80"; // Green border
+            resultDiv.style.border = "3px dashed #4ade80"; // Green border
             resultDiv.style.color = "#16a34a"; // Dark green text
-            resultDiv.innerHTML = `Great job! 🎉<br>You scored ${score} out of 10.<br>Your estimated level is: <strong style="color: #3f6212;">${level}</strong>`;
+            resultDiv.innerHTML = `Great job! 🎉<br><br>You scored ${score} out of 10.<br>Your estimated level is:<br><strong style="color: #3f6212; font-size: 1.8rem; font-family: 'Righteous', cursive; letter-spacing: 1px;">${level}</strong>`;
+            
+            // Trigger the confetti celebration!
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
         }
     </script>
 </body>
